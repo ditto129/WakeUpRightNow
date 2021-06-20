@@ -9,115 +9,45 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical"
-        app:layout_constraintEnd_toEndOf="parent">
-
+        android:orientation="vertical">
         <LinearLayout
+            android:id="@+id/frame_mole_game"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:gravity="center">
-
-            <ImageButton
-                android:id="@+id/test_btn1"
-                android:layout_width="100dp"
-                android:layout_height="100dp"
-                android:background="@drawable/hamster"
-                android:layout_margin="10dp"
-                />
-
-            <ImageButton
-                android:id="@+id/test_btn2"
-                android:layout_width="100dp"
-                android:layout_height="100dp"
-                android:background="@drawable/hamster"
-                android:layout_margin="10dp"
-                />
-
-            <ImageButton
-                android:id="@+id/test_btn3"
-                android:layout_width="100dp"
-                android:layout_height="100dp"
-                android:background="@drawable/hamster"
-                android:layout_margin="10dp"
-                />
-
+            android:orientation="vertical"
+            app:layout_constraintEnd_toEndOf="parent">
         </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:gravity="center">
-
-            <ImageButton
-                android:id="@+id/test_btn4"
-                android:layout_width="100dp"
-                android:layout_height="100dp"
-                android:background="@drawable/hamster"
-                android:layout_margin="10dp"
+            android:orientation="vertical">
+            <TextView
+                android:id="@+id/score"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="40dp"
+                android:textSize="30dp"
+                android:text="@string/hit_it"
+                android:gravity="center"
                 />
 
-            <ImageButton
-                android:id="@+id/test_btn5"
-                android:layout_width="100dp"
-                android:layout_height="100dp"
-                android:background="@drawable/hamster"
-                android:layout_margin="10dp"
-                />
-
-            <ImageButton
-                android:id="@+id/test_btn6"
-                android:layout_width="100dp"
-                android:layout_height="100dp"
-                android:background="@drawable/hamster"
-                android:layout_margin="10dp"
-                />
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="20dp">
+                <Button
+                    android:id="@+id/btn_shut_down"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
+                    android:enabled="false"
+                    android:text="@string/shut_down"
+                    android:textSize="20dp"
+                    android:layout_marginBottom="20dp" />
+            </RelativeLayout>
 
         </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:gravity="center">
-
-            <ImageButton
-                android:id="@+id/test_btn7"
-                android:layout_width="100dp"
-                android:layout_height="100dp"
-                android:background="@drawable/hamster"
-                android:layout_margin="10dp"
-                />
-
-            <ImageButton
-                android:id="@+id/test_btn8"
-                android:layout_width="100dp"
-                android:layout_height="100dp"
-                android:background="@drawable/hamster"
-                android:layout_margin="10dp"
-                />
-
-            <ImageButton
-                android:id="@+id/test_btn9"
-                android:layout_width="100dp"
-                android:layout_height="100dp"
-                android:background="@drawable/hamster"
-                android:layout_margin="10dp"
-                />
-
-        </LinearLayout>
-
-        <TextView
-            android:id="@+id/score"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textSize="30dp"
-            android:gravity="center"
-            />
-
-
-
     </LinearLayout>
 
 

@@ -7,6 +7,7 @@ import android.view.Gravity
 import android.view.View
 import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
+import wakeuprightnow.alarmclock.R
 
 class WhacAMoleActivity : AppCompatActivity() {
     //layout items
@@ -26,7 +27,7 @@ class WhacAMoleActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.choose_level)
+        setContentView(R.layout.mole_choose_level)
         val btn_easy = findViewById<Button>(R.id.mode_easy)
         val btn_hard = findViewById<Button>(R.id.mode_hard)
         btn_easy.setOnClickListener(ModeSwitch())
