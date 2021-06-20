@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item name="hole_1" type="id"></item>
+    <item name="hole_2" type="id"></item>
+    <item name="hole_3" type="id"></item>
+    <item name="hole_4" type="id"></item>
+    <item name="hole_5" type="id"></item>
+    <item name="hole_6" type="id"></item>
+    <item name="hole_7" type="id"></item>
+    <item name="hole_8" type="id"></item>
+    <item name="hole_9" type="id"></item>
+    <item name="hole_10" type="id"></item>
+    <item name="hole_11" type="id"></item>
+    <item name="hole_12" type="id"></item>
+    <item name="hole_13" type="id"></item>
+    <item name="hole_14" type="id"></item>
+    <item name="hole_15" type="id"></item>
+    <item name="hole_16" type="id"></item>
+</resources>
