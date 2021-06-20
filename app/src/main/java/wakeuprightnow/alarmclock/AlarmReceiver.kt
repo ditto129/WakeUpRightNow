@@ -8,6 +8,7 @@ import android.os.Build
 import android.widget.Toast
 import wakeuprightnow.compassmode.CompassModeActivity
 import wakeuprightnow.runningmode.RunningModeActivity
+import wakeuprightnow.whacmolemode.WhacAMoleActivity
 
 import java.util.*
 
@@ -32,7 +33,7 @@ class AlarmReceiver : BroadcastReceiver() {
                 intent.setClass(context, RunningModeActivity::class.java!!)
             }
             2 ->{
-                /* 打地鼠摸式 */
+                intent.setClass(context, WhacAMoleActivity::class.java!!)
             }
             3 ->{
                 intent.setClass(context, CompassModeActivity::class.java!!)

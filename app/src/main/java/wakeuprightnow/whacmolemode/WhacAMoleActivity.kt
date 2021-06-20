@@ -1,5 +1,6 @@
 package wakeuprightnow.whacmolemode
 
+import android.media.MediaPlayer
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
@@ -7,9 +8,12 @@ import android.view.Gravity
 import android.view.View
 import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
+import wakeuprightnow.alarmclock.MainActivity
 import wakeuprightnow.alarmclock.R
 
 class WhacAMoleActivity : AppCompatActivity() {
+    //alarm items
+    lateinit var player: MediaPlayer
     //layout items
     private val BUTTON_IDS = arrayOf(R.id.hole_1, R.id.hole_2, R.id.hole_3, R.id.hole_4, R.id.hole_5, R.id.hole_6, R.id.hole_7, R.id.hole_8, R.id.hole_9, R.id.hole_10, R.id.hole_11, R.id.hole_12, R.id.hole_13, R.id.hole_14, R.id.hole_15, R.id.hole_16)
     private lateinit var handler : Handler
@@ -32,7 +36,10 @@ class WhacAMoleActivity : AppCompatActivity() {
         val btn_hard = findViewById<Button>(R.id.mode_hard)
         btn_easy.setOnClickListener(ModeSwitch())
         btn_hard.setOnClickListener(ModeSwitch())
+        initMusic()
+        player.start()
     }
+
     inner class ModeSwitch() : View.OnClickListener{
         override fun onClick(v: View?) {
             when(v?.id){
@@ -49,7 +56,10 @@ class WhacAMoleActivity : AppCompatActivity() {
             gameFrame = findViewById(R.id.frame_mole_game)
             scoreBoard = findViewById(R.id.score)
             btn_shutdown_alarm = findViewById(R.id.btn_shut_down)
-            ///add shutdown alarm
+            btn_shutdown_alarm.setOnClickListener {
+                finish()
+                player.stop()
+            }
             holes = ArrayList()
             initBtn()
             initHandler()
@@ -85,6 +95,23 @@ class WhacAMoleActivity : AppCompatActivity() {
                 nextHole = -1
             }
 
+        }
+    }
+
+    private fun initMusic() {
+        try {
+            player = MediaPlayer.create(this,
+                MainActivity.clock_song)
+
+            player.setOnCompletionListener {
+                try {
+                    player?.stop()
+                    player?.prepare()
+                    player?.start()
+                } catch (e: Exception) {
+                }
+            }
+        } catch (e: Exception) {
         }
     }
 
