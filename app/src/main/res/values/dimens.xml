@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="hole_size_easy">100dp</dimen>
+    <dimen name="hole_size_hard">80dp</dimen>
+</resources>

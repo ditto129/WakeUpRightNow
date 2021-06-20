@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">WakeUpRightNow</string>
+    <string name="hit_it">戳戳小倉鼠！關掉鬧鐘！</string>
+    <string name="finish_game">你可以關鬧鐘了</string>
+    <string name="shut_down">關閉鬧鐘</string>
+
 </resources>
