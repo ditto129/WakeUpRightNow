@@ -8,7 +8,7 @@ import android.view.View
 import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
 
-class MainActivity : AppCompatActivity() {
+class WhacAMoleActivity : AppCompatActivity() {
     //layout items
     private val BUTTON_IDS = arrayOf(R.id.hole_1, R.id.hole_2, R.id.hole_3, R.id.hole_4, R.id.hole_5, R.id.hole_6, R.id.hole_7, R.id.hole_8, R.id.hole_9, R.id.hole_10, R.id.hole_11, R.id.hole_12, R.id.hole_13, R.id.hole_14, R.id.hole_15, R.id.hole_16)
     private lateinit var handler : Handler
