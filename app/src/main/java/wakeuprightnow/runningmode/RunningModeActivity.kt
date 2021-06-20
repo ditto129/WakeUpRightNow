@@ -15,6 +15,7 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
+import wakeuprightnow.alarmclock.AudioPlay
 import wakeuprightnow.alarmclock.MainActivity
 import wakeuprightnow.alarmclock.R
 
@@ -24,7 +25,6 @@ class RunningModeActivity : AppCompatActivity(), LocationListener {
     lateinit var tv_currentLoc: TextView
     lateinit var tv_distance: TextView
     lateinit var btn_closeAlarm: Button
-    lateinit var player: MediaPlayer
 
     var initloc: Location? = null
     var distance: Double = 0.0
@@ -48,29 +48,9 @@ class RunningModeActivity : AppCompatActivity(), LocationListener {
         } else {
             //初始化位置、播放鬧鐘音樂
             initLoc()
-            initMusic()
-            player.start()
         }
 
     }
-    private fun initMusic() {
-        try {
-            player = MediaPlayer.create(this,
-                MainActivity.clock_song)
-
-            player.setOnCompletionListener {
-                try {
-                    player?.stop()
-                    player?.prepare()
-                    player?.start()
-                } catch (e: Exception) {
-                }
-            }
-        } catch (e: Exception) {
-        }
-    }
-
-
 
     private fun initLoc() {
         locmgr = getSystemService(LOCATION_SERVICE) as
@@ -115,6 +95,7 @@ class RunningModeActivity : AppCompatActivity(), LocationListener {
     private fun closeAlarm(){
         if(distance > 100){
             finish()
+            AudioPlay.stopAudio()
         }
         else{
             var msg= "還差: " + "%.3f".format(100 -distance) + " m"
@@ -122,7 +103,7 @@ class RunningModeActivity : AppCompatActivity(), LocationListener {
                 Toast.LENGTH_SHORT).show();
         }
     }
-
+/*
     //關閉鬧鐘釋放資源
     override fun onStop() {
         super.onStop()
@@ -131,6 +112,7 @@ class RunningModeActivity : AppCompatActivity(), LocationListener {
         player.release()
 
     }
+    */
 
     override fun onLocationChanged(loc: Location) {
         tv_currentLoc.text = "(" + "%.3f".format(loc.latitude) + "," + "%.3f".format(loc.longitude) + ")"

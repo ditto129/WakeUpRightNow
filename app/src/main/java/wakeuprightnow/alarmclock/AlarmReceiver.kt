@@ -20,6 +20,7 @@ class AlarmReceiver : BroadcastReceiver() {
         Toast.makeText(context, "現在是 " + c.get(Calendar.HOUR_OF_DAY) + " 點 " + c.get(Calendar.MINUTE) + " 分",
             Toast.LENGTH_LONG).show()
         sendNotification(context,"點擊來關閉鬧鐘")
+        AudioPlay.playAudio(context, MainActivity.clock_song)
     }
 
     /* 通知 */

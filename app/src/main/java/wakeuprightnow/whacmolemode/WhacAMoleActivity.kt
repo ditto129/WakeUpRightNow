@@ -10,6 +10,7 @@ import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
 import wakeuprightnow.alarmclock.MainActivity
 import wakeuprightnow.alarmclock.R
+import wakeuprightnow.alarmclock.AudioPlay
 
 class WhacAMoleActivity : AppCompatActivity() {
     //alarm items
@@ -36,8 +37,6 @@ class WhacAMoleActivity : AppCompatActivity() {
         val btn_hard = findViewById<Button>(R.id.mode_hard)
         btn_easy.setOnClickListener(ModeSwitch())
         btn_hard.setOnClickListener(ModeSwitch())
-        initMusic()
-        player.start()
     }
 
     inner class ModeSwitch() : View.OnClickListener{
@@ -58,7 +57,7 @@ class WhacAMoleActivity : AppCompatActivity() {
             btn_shutdown_alarm = findViewById(R.id.btn_shut_down)
             btn_shutdown_alarm.setOnClickListener {
                 finish()
-                player.stop()
+                AudioPlay.stopAudio()
             }
             holes = ArrayList()
             initBtn()
@@ -95,23 +94,6 @@ class WhacAMoleActivity : AppCompatActivity() {
                 nextHole = -1
             }
 
-        }
-    }
-
-    private fun initMusic() {
-        try {
-            player = MediaPlayer.create(this,
-                MainActivity.clock_song)
-
-            player.setOnCompletionListener {
-                try {
-                    player?.stop()
-                    player?.prepare()
-                    player?.start()
-                } catch (e: Exception) {
-                }
-            }
-        } catch (e: Exception) {
         }
     }
 

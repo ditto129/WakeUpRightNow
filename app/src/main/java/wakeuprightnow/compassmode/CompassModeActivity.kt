@@ -18,6 +18,7 @@ import android.view.Gravity
 import android.view.Surface
 import android.view.ViewGroup
 import android.widget.*
+import wakeuprightnow.alarmclock.AudioPlay
 import wakeuprightnow.alarmclock.MainActivity
 
 
@@ -84,12 +85,8 @@ class CompassModeActivity : AppCompatActivity(), SensorEventListener{
         smgr = getSystemService(Context.SENSOR_SERVICE) as SensorManager
         accel = smgr.getDefaultSensor(Sensor.TYPE_ACCELEROMETER)
         compass = smgr.getDefaultSensor(Sensor.TYPE_MAGNETIC_FIELD)
-
-        initMusic()
-        player.start()
-
     }
-
+/*
     private fun initMusic() {
         try {
             player = MediaPlayer.create(this,
@@ -107,6 +104,8 @@ class CompassModeActivity : AppCompatActivity(), SensorEventListener{
         }
     }
 
+ */
+
     override fun onResume(){
         super.onResume()
         smgr.registerListener(this, accel, SensorManager.SENSOR_DELAY_NORMAL)
@@ -116,10 +115,10 @@ class CompassModeActivity : AppCompatActivity(), SensorEventListener{
 
     override fun onStop() {
         super.onStop()
-        player.stop()
+        //player.stop()
         smgr.unregisterListener(this, accel)
         smgr.unregisterListener(this, compass)
-        player.release()
+        //player.release()
 
     }
     override fun onSensorChanged(event: SensorEvent){
@@ -191,9 +190,6 @@ class CompassModeActivity : AppCompatActivity(), SensorEventListener{
         arrow.degree = degree
         setContentView(arrow)
 
-
-
-
         var pointNum = 0
 
         for(i in 0..9){
@@ -230,12 +226,13 @@ class CompassModeActivity : AppCompatActivity(), SensorEventListener{
     fun overFunction(){
         isOver = true
         btn.isEnabled = true
-        btn.isClickable = true
         btn.setBackgroundColor(Color.parseColor("#52B69A"))
         btn.setTextColor(Color.BLACK)
         btn.setOnClickListener{
             Log.d("8787", "clickkkkkkk")
             onStop()
+            AudioPlay.stopAudio()
+            finish()
         }
         //關鬧鐘！！！！！
 
