@@ -5,13 +5,13 @@ import android.media.MediaPlayer
 
 
 object AudioPlay {
-    var mediaPlayer: MediaPlayer? = null
+    var player: MediaPlayer? = null
     var lastResource: Int? = null
 
     fun playAudio(c: Context, id: Int, isLooping: Boolean = true) {
         createMediaPlayer(c, id)
 
-        mediaPlayer?.let {
+        player?.let {
             it.isLooping = isLooping
 
             if (!it.isPlaying) {
@@ -21,12 +21,11 @@ object AudioPlay {
     }
 
     private fun createMediaPlayer(c: Context, id: Int) {
-        mediaPlayer?.stop()
-        mediaPlayer = MediaPlayer.create(c, id)
+        player?.stop()
+        player = MediaPlayer.create(c, id)
         lastResource = id
     }
 
-    // usually used inside the Activity's onResume method
     fun continuePlaying(c: Context, specificResource: Int? = null) {
         specificResource?.let {
             if (lastResource != specificResource) {
@@ -34,7 +33,7 @@ object AudioPlay {
             }
         }
 
-        mediaPlayer?.let {
+        player?.let {
             if (!it.isPlaying) {
                 it.start()
             }
@@ -42,11 +41,11 @@ object AudioPlay {
     }
 
     fun pauseAudio() {
-        mediaPlayer?.pause()
+        player?.pause()
     }
 
     fun stopAudio(){
-        mediaPlayer?.stop()
+        player?.stop()
     }
 
 }
