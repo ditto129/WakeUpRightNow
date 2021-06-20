@@ -6,6 +6,7 @@ import android.content.Intent
 import android.app.*
 import android.os.Build
 import android.widget.Toast
+import wakeuprightnow.alarmclock.AudioPlay.playAudio
 import wakeuprightnow.compassmode.CompassModeActivity
 import wakeuprightnow.runningmode.RunningModeActivity
 import wakeuprightnow.whacmolemode.WhacAMoleActivity
@@ -20,6 +21,7 @@ class AlarmReceiver : BroadcastReceiver() {
         Toast.makeText(context, "現在是 " + c.get(Calendar.HOUR_OF_DAY) + " 點 " + c.get(Calendar.MINUTE) + " 分",
             Toast.LENGTH_LONG).show()
         sendNotification(context,"點擊來關閉鬧鐘")
+        playAudio(context, MainActivity.clock_song)
     }
 
     /* 通知 */
