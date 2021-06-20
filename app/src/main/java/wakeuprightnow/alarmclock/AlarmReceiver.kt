@@ -9,6 +9,7 @@ import android.widget.Toast
 import wakeuprightnow.compassmode.CompassModeActivity
 import wakeuprightnow.runningmode.RunningModeActivity
 import wakeuprightnow.whacmolemode.WhacAMoleActivity
+import wakeuprightnow.riddlemode.RiddleModeActivity
 
 import java.util.*
 
@@ -28,7 +29,7 @@ class AlarmReceiver : BroadcastReceiver() {
         val intent = Intent()
         when(MainActivity.clock_mode){
             0 ->{
-                /* 猜謎摸式 */
+                intent.setClass(context, RiddleModeActivity::class.java!!)
             }
             1 ->{
                 intent.setClass(context, RunningModeActivity::class.java!!)
