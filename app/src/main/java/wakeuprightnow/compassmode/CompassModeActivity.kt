@@ -226,8 +226,8 @@ class CompassModeActivity : AppCompatActivity(), SensorEventListener{
     fun overFunction(){
         isOver = true
         btn.isEnabled = true
-        btn.setBackgroundColor(Color.parseColor("#52B69A"))
-        btn.setTextColor(Color.BLACK)
+        btn.setBackgroundColor(Color.parseColor("#FF6200EE"))
+        btn.setTextColor(Color.WHITE)
         btn.setOnClickListener{
             Log.d("8787", "clickkkkkkk")
             onStop()

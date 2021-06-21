@@ -63,11 +63,12 @@
 
     <Button
         android:id="@+id/btn_closeAlarm"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:gravity="center_horizontal"
+        android:layout_gravity="center|bottom"
+        android:layout_margin="20dp"
+        android:layout_marginBottom="20dp"
         android:text="關閉鬧鐘"
-        android:textSize="30sp"
-        />
+        android:textSize="30sp" />
 
 </LinearLayout>
